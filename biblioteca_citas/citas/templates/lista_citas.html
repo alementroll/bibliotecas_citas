@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Citas</title>
+</head>
+<body>
+    <h1>Lista de Citas</h1>
+
+    <form method="get">
+        <input type="text" name="autor" placeholder="Autor" value="{{ autor }}">
+        <input type="text" name="tipo_fuente" placeholder="Tipo de Fuente" value="{{ tipo_fuente }}">
+        <input type="number" name="año" placeholder="Año" value="{{ año }}">
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <ul>
+        {% for cita in page_obj %}
+            <li>{{ cita.texto }} - {{ cita.autor }} ({{ cita.fecha }}) 
+                - Fuente: {{ cita.fuente.nombre }} 
+                - <a href="{% url 'editar_cita' cita.pk %}">Editar</a> 
+                - <a href="{% url 'eliminar_cita' cita.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Paginación -->
+    <div>
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        <div>
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <strong>{{ num }}</strong>
+                {% else %}
+                    <a href="?page={{ num }}&autor={{ autor }}&tipo_fuente={{ tipo_fuente }}&año={{ año }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <a href="{% url 'crear_cita' %}">Crear nueva cita</a>
+    <a href="{% url 'crear_fuente' %}">Crear nueva fuente</a>
+</body>
+</html>
