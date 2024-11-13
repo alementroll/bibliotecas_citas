@@ -20,5 +20,8 @@ from citas.views import lista_citas, crear_cita, editar_cita, eliminar_cita, cre
 
 urlpatterns = [
     path('', lista_citas, name=''),
-
+    path('crear_cita', crear_cita, name='crear_cita'),
+    path('editar_cita', editar_cita, name='editar_cita'),
+    path('eliminar_cita', eliminar_cita, name='eliminar_cita'),
+    path('crear_fuente', crear_fuente, name='crear_fuente'),
 ]

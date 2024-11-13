@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Crear Cita</h1>
+    <div class="container mt-5">
 
-    <form method="POST">
-        <label for="texto"></label>
-    </form>
+        <form method="POST">
+            <div class="form-group">
+                <label for="texto">Texto:</label>
+                <input type="text" id="texto" name="texto" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" name="autor" required><br><br>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Agregar libro</button>
+        </form>
 
-    texto = request.POST.get('texto')
-        autor = request.POST.get('autor')
-        fecha = request.POST.get('fecha')
-        fuente_id = request.POST.get('fuente')
+        <a href="editar_cita"></a>
+    </div>
 </body>
 </html>
