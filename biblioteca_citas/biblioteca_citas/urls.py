@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from citas.views import lista_citas, crear_cita, editar_cita, eliminar_cita, crear_fuente
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', lista_citas, name=''),
+
 ]
